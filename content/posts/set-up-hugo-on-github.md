@@ -3,7 +3,7 @@ author: Stu
 title: "Setting up your Hugo site on GitHub"
 summary: "Automatically building your Hugo site using GitHub Actions and hosting it with GitHub Pages."
 date: 2022-12-06T19:40:36Z
-draft: true
+draft: false
 tags: [blogging, hugo, github]
 ---
 
@@ -17,11 +17,11 @@ Your first port of call should be reading the docs from Hugo on how to [host on 
 
 Below we'll step through getting your site on to GitHub.
 
-#### Create a GitHub repo
+## Create a GitHub repo
 
 Login to GitHub and create repository named "blog" or similar.
 
-#### Push your Hugo site to GitHub
+## Push your Hugo site to GitHub
 
 If you're new to Git it can be quite a learning curve, I highly recommend the [GitHub learning resources](https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources) and the [Pro Git book](https://git-scm.com/book/en/v2) which goes over getting started and more advanced topics.
 
@@ -47,16 +47,17 @@ $ git remote push origin main
 
 Hopefully the above went smoothly and you can now see your code in your GitHub repo.
 
-#### Add the GitHub Actions workflow
+## Add the GitHub Actions workflow
 
 To keep things simple you can use my GitHub Actions workflow by downloading it from GitHub repo.
 
-From the root directory of your Git repo, run:
+From the base directory of your Git repo, run:
 ```bash
 curl -o .github/workflows/hugo.yaml https://raw.githubusercontent.com/pragmatarget/blog/main/.github/workflows/hugo.yaml
 ```
 
-This will download this rather long workflow yaml file:
+This will download this rather long workflow yaml file which builds the Hugo blog using GitHub Actions each time you push to the main branch of the repo:
+
 ```yaml
 # Workflow for building and deploying a Hugo site to GitHub Pages
 name: Deploy Hugo site to Pages
@@ -138,5 +139,14 @@ jobs:
 
 ```
 
+## Push the workflow to the remote GitHub repo
+Add this file to your git repo and push to the remote repo on GitHub
 
+```bash
+git add .github/workflows/hugo.yaml
+git remote push origin
+```
 
+After you have pushed to the repo repo, check that GitHub has recognised the workflow under that "Actions" tab: https://github.com/<username>/<repo>/actions
+
+Once you push a new post, GitHub Actions will automatically build your blog.

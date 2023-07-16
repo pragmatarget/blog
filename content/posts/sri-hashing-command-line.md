@@ -3,7 +3,7 @@ author: Stu
 title: Generating subresource Integrity (SRI) hashes from the command line
 summary: "How to quickly generate subresource Integrity (SRI) hashes from the command line"
 date: 2023-01-03T22:27:22Z
-draft: true
+draft: false
 tags: [cybersecurity, web, cli]
 ---
 
