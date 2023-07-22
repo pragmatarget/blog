@@ -68,13 +68,13 @@ export PEER_PUBLIC_KEY=`echo $PEER_PRIVATE_KEY | wg pubkey`
 # Attempt to get the interface facing address of the gateway
 export ENDPOINT_IP=`curl -s ipinfo.io/ip`
 
-sudo wg set wg0 peer $PEER_PUBLIC_KEY allowed-ips 10.32.0.0/24
+sudo wg set wg0 peer $PEER_PUBLIC_KEY allowed-ips 10.32.0.2/32
 
 cat <<EOF | qrencode -t utf8
 [Interface]
 PrivateKey = $PEER_PRIVATE_KEY
 DNS = 1.1.1.1
-Address = 10.32.0.2/24
+Address = 10.32.0.2/32
 
 [Peer]
 PublicKey = `sudo cat /etc/wireguard/public.key`
