@@ -8,7 +8,7 @@ tags: [networking, tcpdump, wireshark]
 ---
 
 I'm going to step through how I do remote packet capture on Linux machines and stream the packets to a Linux, MacOS, or Windows host to view them on.
-huf
+
 Why would you do this? If you want to understand how something works over a network, or perhaps you're debugging a network issue, you can't beat firing up Wireshark. However, if you only have remote console access to the box or VM the alternatives like tcpdump and tshark can be difficult to work with. Plus, having the packets on your local machine makes processing, storing or sharing them easier.
 
 # Pre-requisites
